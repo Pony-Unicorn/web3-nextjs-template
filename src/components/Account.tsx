@@ -1,13 +1,9 @@
-import { useAccount, useEnsName } from 'wagmi';
+import { useAccount } from 'wagmi';
+import { useIsMounted } from '../hooks';
 
 export function Account() {
   const { address } = useAccount();
-  const { data: ensNameData } = useEnsName({ address });
+  const isMounted = useIsMounted();
 
-  return (
-    <div>
-      {ensNameData ?? address}
-      {ensNameData ? ` (${address})` : null}
-    </div>
-  );
+  return <div>{isMounted && address}</div>;
 }

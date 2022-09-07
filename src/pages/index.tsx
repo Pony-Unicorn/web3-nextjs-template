@@ -1,14 +1,27 @@
 import type { NextPage } from 'next';
+
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import ProTip from '../src/ProTip';
-import Copyright from '../src/Copyright';
+import Button from '@mui/material/Button';
 
-import { Connect } from '../src/components';
-import { Account } from '../src/components';
+import { Connect } from '../components';
+import { Account } from '../components';
+
+import ProTip from '../ProTip';
+import Copyright from '../Copyright';
+
+import shallow from 'zustand/shallow';
+import useStoreDemo from '../store/useStoreDemo';
+
+import conf from '../conf/env';
 
 const Home: NextPage = () => {
+  const [count, setCount] = useStoreDemo(
+    (state) => [state.count, state.increase],
+    shallow
+  );
+
   return (
     <Container maxWidth="lg">
       <Box
@@ -24,6 +37,15 @@ const Home: NextPage = () => {
         </Typography>
         <Connect />
         <Account />
+        <Typography>{conf.MODE}</Typography>
+        <Typography>zustand count: {count}</Typography>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            setCount(Math.random());
+          }}>
+          zustand setCount
+        </Button>
         <ProTip />
         <Copyright />
       </Box>
