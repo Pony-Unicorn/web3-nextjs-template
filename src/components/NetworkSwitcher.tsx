@@ -1,3 +1,7 @@
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
 import { useNetwork, useSwitchNetwork } from 'wagmi';
 
 export default function NetworkSwitcher() {
@@ -6,26 +10,26 @@ export default function NetworkSwitcher() {
     useSwitchNetwork();
 
   return (
-    <div>
-      <div>
+    <Box>
+      <Typography>
         Connected to {chain?.name ?? chain?.id}
         {chain?.unsupported && ' (unsupported)'}
-      </div>
+      </Typography>
 
       {switchNetwork && (
-        <div>
+        <Box>
           {chains.map((x) =>
             x.id === chain?.id ? null : (
-              <button key={x.id} onClick={() => switchNetwork(x.id)}>
+              <Button key={x.id} onClick={() => switchNetwork(x.id)}>
                 {x.name}
                 {isLoading && x.id === pendingChainId && ' (switching)'}
-              </button>
+              </Button>
             )
           )}
-        </div>
+        </Box>
       )}
 
-      <div>{error && error.message}</div>
-    </div>
+      <Typography>{error && error.message}</Typography>
+    </Box>
   );
 }

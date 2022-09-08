@@ -1,3 +1,7 @@
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 
 import { useIsMounted } from '../hooks';
@@ -10,27 +14,27 @@ export default function Connect() {
   const { disconnect } = useDisconnect();
 
   return (
-    <div>
+    <Box>
       {isMounted && (
-        <div>
+        <Box>
           {isConnected && (
-            <button onClick={() => disconnect()}>
+            <Button onClick={() => disconnect()}>
               Disconnect from {connector?.name}
-            </button>
+            </Button>
           )}
 
           {connectors
             .filter((x) => x.ready && x.id !== connector?.id)
             .map((x) => (
-              <button key={x.id} onClick={() => connect({ connector: x })}>
+              <Button key={x.id} onClick={() => connect({ connector: x })}>
                 {x.name}
                 {isLoading && x.id === pendingConnector?.id && ' (connecting)'}
-              </button>
+              </Button>
             ))}
-        </div>
+        </Box>
       )}
 
-      {error && <div>{error.message}</div>}
-    </div>
+      {error && <Typography>{error.message}</Typography>}
+    </Box>
   );
 }
