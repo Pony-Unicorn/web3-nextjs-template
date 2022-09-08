@@ -2,7 +2,7 @@ import { useAccount, useConnect, useDisconnect } from 'wagmi';
 
 import { useIsMounted } from '../hooks';
 
-export function Connect() {
+export default function Connect() {
   const isMounted = useIsMounted();
   const { connector, isConnected } = useAccount();
   const { connect, connectors, error, isLoading, pendingConnector } =

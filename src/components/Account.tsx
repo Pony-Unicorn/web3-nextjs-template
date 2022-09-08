@@ -1,7 +1,7 @@
 import { useAccount } from 'wagmi';
 import { useIsMounted } from '../hooks';
 
-export function Account() {
+export default function Account() {
   const { address } = useAccount();
   const isMounted = useIsMounted();
 

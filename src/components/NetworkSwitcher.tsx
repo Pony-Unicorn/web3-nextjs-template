@@ -1,6 +1,6 @@
 import { useNetwork, useSwitchNetwork } from 'wagmi';
 
-export function NetworkSwitcher() {
+export default function NetworkSwitcher() {
   const { chain } = useNetwork();
   const { chains, error, isLoading, pendingChainId, switchNetwork } =
     useSwitchNetwork();

@@ -5,11 +5,10 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-import { Connect } from '../components';
-import { Account } from '../components';
-
-import ProTip from '../ProTip';
-import Copyright from '../Copyright';
+import Account from '../components/Account';
+import Connect from '../components/Connect';
+import Copyright from '../components/Copyright';
+import ProTip from '../components/ProTip';
 
 import shallow from 'zustand/shallow';
 import useStoreDemo from '../store/useStoreDemo';
