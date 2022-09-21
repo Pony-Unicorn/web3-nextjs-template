@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 
 import { useAccount, useConnect, useDisconnect } from 'wagmi';
 
-import { useIsMounted } from '../hooks';
+import useIsMounted from '../hooks/useIsMounted';
 
 export default function Connect() {
   const isMounted = useIsMounted();
