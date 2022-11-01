@@ -5,8 +5,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-import Account from '../components/Account';
-import Connect from '../components/Connect';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
 import Copyright from '../components/Copyright';
 import ProTip from '../components/ProTip';
 
@@ -34,8 +34,7 @@ const Home: NextPage = () => {
         <Typography variant="h4" component="h1" gutterBottom>
           MUI v5 + Next.js + wagmi + zustand + TypeScript example
         </Typography>
-        <Connect />
-        <Account />
+        <ConnectButton />
         <Typography>{conf.MODE}</Typography>
         <Typography>zustand count: {count}</Typography>
         <Button
