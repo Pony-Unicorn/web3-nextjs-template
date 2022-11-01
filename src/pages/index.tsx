@@ -33,7 +33,7 @@ const Home: NextPage = () => {
           alignItems: 'center'
         }}>
         <Typography variant="h4" component="h1" gutterBottom>
-          MUI v5 + Next.js + wagmi + zustand + TypeScript example
+          MUI v5 + Next.js + rainbowkit + zustand + TypeScript example
         </Typography>
         <ConnectButton />
         <Typography>{conf.MODE}</Typography>
