@@ -2,6 +2,7 @@
 
 ## How to use
 
+Use pnpm package manager
 Install it and run:
 
 ```sh
