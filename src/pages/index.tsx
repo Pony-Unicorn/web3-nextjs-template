@@ -5,12 +5,13 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
+import shallow from 'zustand/shallow';
+
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 import Copyright from '../components/Copyright';
 import ProTip from '../components/ProTip';
 
-import shallow from 'zustand/shallow';
 import useStoreDemo from '../store/useStoreDemo';
 
 import conf from '../conf/env';
