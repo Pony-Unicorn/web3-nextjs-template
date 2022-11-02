@@ -23,6 +23,8 @@ import { chain, WagmiConfig, configureChains, createClient } from 'wagmi';
 // import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
+import { appName } from '../conf/constant';
+
 import theme from '../theme';
 import createEmotionCache from '../createEmotionCache';
 
@@ -37,8 +39,6 @@ const { chains, provider } = configureChains(
     publicProvider()
   ]
 );
-
-const appName = 'web3-nextjs-template';
 
 const appInfo = {
   appName

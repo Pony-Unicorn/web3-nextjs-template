@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 
 import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -33,18 +34,29 @@ const Home: NextPage = () => {
           alignItems: 'center'
         }}>
         <Typography variant="h4" component="h1" gutterBottom>
-          MUI v5 + Next.js + rainbowkit + zustand + TypeScript example
+          MUI v5 + Next.js + rainbowkit + zustand + TypeScript templates
         </Typography>
-        <ConnectButton />
-        <Typography>{conf.MODE}</Typography>
-        <Typography>zustand count: {count}</Typography>
-        <Button
-          variant="outlined"
-          onClick={() => {
-            setCount(Math.random());
-          }}>
-          zustand setCount
-        </Button>
+        <Stack spacing={2}>
+          <ConnectButton />
+          <Typography>development environment: {conf.MODE}</Typography>
+          <Typography>zustand count: {count}</Typography>
+          <Stack direction="row" spacing={2}>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                setCount(1);
+              }}>
+              zustand +1
+            </Button>
+            <Button
+              variant="outlined"
+              onClick={() => {
+                setCount(-1);
+              }}>
+              zustand -1
+            </Button>
+          </Stack>
+        </Stack>
         <ProTip />
         <Copyright />
       </Box>
