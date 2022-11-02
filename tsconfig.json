@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -15,11 +16,11 @@
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
     "paths": {
-      "@lib/*": ["lib/*"],
-      "@assets/*": ["assets/*"],
-      "@conf/*": ["conf/*"],
-      "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
+      "@lib/*": ["src/lib/*"],
+      "@assets/*": ["src/assets/*"],
+      "@conf/*": ["src/conf/*"],
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "incremental": true
   },
