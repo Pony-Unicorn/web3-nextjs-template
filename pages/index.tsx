@@ -10,12 +10,12 @@ import shallow from 'zustand/shallow';
 
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 
-import Copyright from '../components/Copyright';
-import ProTip from '../components/ProTip';
+import Copyright from '../src/components/Copyright';
+import ProTip from '../src/components/ProTip';
 
-import useStoreDemo from '../store/useStoreDemo';
+import useStoreDemo from '../src/store/useStoreDemo';
 
-import conf from '../conf/env';
+import conf from '../src/conf/env';
 
 const Home: NextPage = () => {
   const [count, setCount] = useStoreDemo(

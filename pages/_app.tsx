@@ -23,10 +23,10 @@ import { chain, WagmiConfig, configureChains, createClient } from 'wagmi';
 // import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
-import { appName } from '../conf/constant';
+import { appName } from '../src/conf/constant';
 
-import theme from '../theme';
-import createEmotionCache from '../createEmotionCache';
+import theme from '../src/theme';
+import createEmotionCache from '../src/createEmotionCache';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
