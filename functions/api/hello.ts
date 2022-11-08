@@ -1,3 +1,6 @@
-export async function onRequestGet({ params }) {
-  return new Response(`Hello world ${params.name}`);
+export async function onRequestGet(req) {
+  const { searchParams } = new URL(req.url);
+  const age = searchParams.get('age');
+
+  return new Response(`Hello world ${age}`);
 }
