@@ -1,11 +1,7 @@
+import '../styles/globals.css'
 import '@rainbow-me/rainbowkit/styles.css';
 
-import Head from 'next/head';
 import { AppProps } from 'next/app';
-
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider, EmotionCache } from '@emotion/react';
 
 import {
   RainbowKitProvider,
@@ -19,21 +15,21 @@ import {
   walletConnectWallet
 } from '@rainbow-me/rainbowkit/wallets';
 
-import { chain, WagmiConfig, configureChains, createClient } from 'wagmi';
+import {
+  WagmiConfig,
+  configureChains,
+  createClient,
+  // mainnet,
+  goerli
+} from 'wagmi';
 // import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 
 import { appName } from '../src/conf/constant';
 
-import theme from '../src/theme';
-import createEmotionCache from '../src/createEmotionCache';
-
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
-
 const { chains, provider } = configureChains(
-  [chain.goerli],
-  // [chain.mainnet, chain.goerli],
+  [goerli],
+  // [mainnet],
   [
     // alchemyProvider({ apiKey: '_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC' }), // Replace your own apiKey
     publicProvider()
@@ -63,25 +59,12 @@ const wagmiClient = createClient({
   provider
 });
 
-interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
-}
-
-export default function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider coolMode appInfo={appInfo} chains={chains}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </RainbowKitProvider>
-      </WagmiConfig>
-    </CacheProvider>
+    <WagmiConfig client={wagmiClient}>
+      <RainbowKitProvider coolMode appInfo={appInfo} chains={chains}>
+        <Component {...pageProps} />
+      </RainbowKitProvider>
+    </WagmiConfig>
   );
 }
